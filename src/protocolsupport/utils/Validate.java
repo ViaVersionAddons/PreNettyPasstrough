@@ -1,0 +1,21 @@
+package protocolsupport.utils;
+
+public final class Validate {
+
+	private Validate() {
+	}
+
+	public static void isTrue(boolean expression, String message) {
+		if (!expression) {
+			throw new IllegalArgumentException(message);
+		}
+	}
+
+	public static <T> T notNull(T object, String message) {
+		if (object == null) {
+			throw new NullPointerException(message);
+		}
+		return object;
+	}
+
+}
