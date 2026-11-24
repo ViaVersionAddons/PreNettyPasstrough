@@ -1,0 +1,14 @@
+# PreNettyPasstrough
+#
+# Clients that BungeeCord and the built-in handling cannot serve (Minecraft 1.0 - 1.4.5 and 1.7.x) are tunnelled:
+# after the handshake the connection is piped 1:1 to a backend server. The backend server has to accept
+# these client versions itself (for example through ViaVersion + ViaLegacy + ViaPreNetty).
+tunnel:
+  # Backend server (name from BungeeCord's config.yml) for tunnelled connections.
+  # Empty = forced host of the listener, otherwise the first default server of the listener.
+  server: ""
+  # Also tunnel 1.4.7 - 1.6.4 instead of handling them inside BungeeCord (ProtocolSupport style, needs a
+  # backend with ProtocolSupport's encapsulation protocol).
+  include-1-4-7-to-1-6-4: false
+  # Log every tunnelled connection.
+  log: true
